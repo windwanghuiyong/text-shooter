@@ -10,4 +10,11 @@
 
 @interface GameScene : SKScene
 
+@property (assign, nonatomic) NSUInteger levelNumber;
+@property (assign, nonatomic) NSUInteger playerLives;
+@property (assign, nonatomic) BOOL finished;
+
++ (instancetype)sceneWithSize:(CGSize)size levelNumber:(NSInteger) levelNumber;
+- (instancetype)initWithSize:(CGSize)size levelNumber:(NSInteger) levelNumber;
+
 @end

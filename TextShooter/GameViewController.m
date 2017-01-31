@@ -13,38 +13,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    // Load the SKScene from 'GameScene.sks'
-    GameScene *scene = (GameScene *)[SKScene nodeWithFileNamed:@"GameScene"];
-    
-    // Set the scale mode to scale to fit the window
-    scene.scaleMode = SKSceneScaleModeAspectFill;
     
     SKView *skView = (SKView *)self.view;
+    skView.showsFPS = YES;					// 帧数
+    skView.showsNodeCount = YES;				// 节点数
+    skView.ignoresSiblingOrder = YES;
     
-    // Present the scene
-    [skView presentScene:scene];
+    GameScene *scene = [GameScene sceneWithSize:self.view.frame.size levelNumber:1];
     
-    skView.showsFPS = YES;
-    skView.showsNodeCount = YES;
+    [skView presentScene:scene];	
 }
 
 - (BOOL)shouldAutorotate {
     return YES;
 }
 
-- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        return UIInterfaceOrientationMaskAllButUpsideDown;
-    } else {
-        return UIInterfaceOrientationMaskAll;
-    }
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Release any cached data, images, etc that aren't in use.
-}
 
 - (BOOL)prefersStatusBarHidden {
     return YES;
